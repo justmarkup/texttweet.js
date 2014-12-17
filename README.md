@@ -1,4 +1,5 @@
 texttweet.js
 ============
 
-Script to share highlighted text via twitter
+* Author    : justmarkup hallo@justmarkup.com
+* Demo      : https://justmarkup.com/texttweet/index.html
