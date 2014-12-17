@@ -1,0 +1,59 @@
+/* general */
+html,
+body {
+	font-size: Arial, Helvetica, sans-serif;
+	color: #111;
+}
+
+body {
+	width: 54em;
+	max-width: 90%;
+	padding: 4em 5%;
+	margin: 0 auto;
+}
+
+p { 
+	font-size: 1.4em;
+}
+
+a {
+	color: #4099FF;
+}
+
+/* share button and selection */
+
+.share-button {
+	transition: all 0.3s ease-out;
+	-webkit-transition: all 0.3s ease-out;
+	background: #4099FF;
+	color: #fff;
+	text-decoration: none;
+	padding: 10px;
+}
+
+.share-button-active {
+	position: fixed;
+	margin: -40px 0;
+	padding: 10px;
+}
+
+::selection {
+  display: inline;
+  background: black;
+  background: rgba(0,0,0,.8);
+  color: #fff;
+}
+
+::-moz-selection  {
+  display: inline;
+  background: black;
+  background: rgba(0,0,0,.8);
+  color: #fff;
+}
+
+.highlight {
+  display: inline;
+  background: black;
+  background: rgba(0,0,0,.8);
+  color: #fff;
+}
