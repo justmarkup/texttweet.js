@@ -74,8 +74,8 @@
 				d.querySelector('.highlight') ? d.querySelector('.highlight').className = "" : "";
 				d.location.hash = encode(text);
 				getSelectionCoords();
-				shareButton.style.top = (getSelectionCoords().y);
-				shareButton.style.left = (getSelectionCoords().x);
+				shareButton.style.top = (getSelectionCoords().y) + 'px';
+				shareButton.style.left = (getSelectionCoords().x) + 'px';
 				shareButton.className = "share-button share-button-active";	
 				shareButton.href = "http://www.twitter.com/share?text=" + text + '&url=' + decode(d.location.href);
 
@@ -88,4 +88,4 @@
 		d.documentElement.addEventListener("mouseup", function () {getSelectionText()}, false);
 		w.addEventListener("scroll", function () {getSelectionText()}, false);
 	}
-} )( window, document);
+} )( this, this.document);
