@@ -26,7 +26,6 @@
 	// cut the mustard, the selection part only works in modern browsers
 	if ('querySelector' in d && 'addEventListener' in w && w.getSelection) {
 
-
 		function trim(text) {
 			return text && (text.trim? text.trim() : text.replace(/^\s+|\s+$/g, ''));
 		}
@@ -87,6 +86,8 @@
 
 		d.documentElement.addEventListener("mousedown", function () {getSelectionText()}, false);
 		d.documentElement.addEventListener("mouseup", function () {getSelectionText()}, false);
+		d.documentElement.addEventListener("keydown", function () {getSelectionText()}, false);
+		d.documentElement.addEventListener("keyup", function () {getSelectionText()}, false);
 		w.addEventListener("scroll", function () {getSelectionText()}, false);
 	}
 })(this, this.document);
