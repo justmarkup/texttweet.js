@@ -1,9 +1,10 @@
 /*! Texttweet.js
 *  Author: Michael Scharnagl @justmarkup
+*  Version: 0.1.0
 *  License: MIT
 */
 
-(function( w, d) {
+(function(w, d) {
 	// wrap choosen text
 	function highlight(text) {
 		var inputText = d.body,
@@ -19,7 +20,7 @@
 	// highlight text from hash and scroll it into view.
 	if (d.location.hash) {
 		highlight(decodeURIComponent(d.location.hash).replace(/\+/g, ' ').split('#')[1]);
-		setTimeout(function(){ d.getElementById("highlight").scrollIntoView(); }, 1000);
+		setTimeout(function(){ d.getElementById("highlight").scrollIntoView({behavior: "smooth"}); }, 1000);
 	}
 
 	// cut the mustard, the selection part only works in modern browsers
@@ -88,4 +89,4 @@
 		d.documentElement.addEventListener("mouseup", function () {getSelectionText()}, false);
 		w.addEventListener("scroll", function () {getSelectionText()}, false);
 	}
-} )( this, this.document);
+})(this, this.document);
