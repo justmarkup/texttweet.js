@@ -5,6 +5,14 @@
 */
 
 (function(w, d) {
+	var isModern = 'querySelector' in d && 'addEventListener' in w && w.getSelection,
+		trim,
+		encode,
+		decode,
+		getSelectionCoords,
+		getSelectionText;
+
+
 	// wrap choosen text
 	function highlight(text) {
 		var inputText = d.body,
@@ -13,7 +21,7 @@
 
 		if (index >= 0) { 
 			innerHTML = innerHTML.substring(0,index) + '<span id="highlight" class="highlight">' + innerHTML.substring(index,index+text.length) + '</span>' + innerHTML.substring(index + text.length);
-			inputText.innerHTML = innerHTML 
+			inputText.innerHTML = innerHTML;
 		}
 	}
 
@@ -24,13 +32,13 @@
 	}
 
 	// cut the mustard, the selection part only works in modern browsers
-	if ('querySelector' in d && 'addEventListener' in w && w.getSelection) {
+	if (isModern) {
 
-		function trim(text) {
+		trim = function (text) {
 			return text && (text.trim? text.trim() : text.replace(/^\s+|\s+$/g, ''));
-		}
+		};
 
-		function encode (text) {
+		encode = function (text) {
 			return encodeURIComponent(trim(text))
 				.replace(/'/g, '%27')
 				.replace(/\(/g, '%28')
@@ -40,13 +48,13 @@
 				.replace(/~/g, '%7E')
 				
 				.replace(/%20/g, '+');
-		}
+		};
 		
-		function decode (text) {
+		decode = function (text) {
 			return encodeURIComponent(text.replace(/\+/g, '%20').replace('#', '%23'));
-		}
+		};
 		
-		function getSelectionCoords() {
+		getSelectionCoords = function () {
 			var range,
 				rect,
 				sel = w.getSelection(),
@@ -64,14 +72,16 @@
 			}
 
 			return { x: x, y: y };
-		}
+		};
 
-		function getSelectionText() {
+		getSelectionText = function () {
 			var text = w.getSelection().toString(),
 				shareButton = d.querySelector('.share-button');
 
 			if (text) {
-				d.querySelector('.highlight') ? d.querySelector('.highlight').className = "" : "";
+				if (d.querySelector('.highlight')) {
+					d.querySelector('.highlight').className = "";
+				}
 				d.location.hash = encode(text);
 				getSelectionCoords();
 				shareButton.style.top = (getSelectionCoords().y) + 'px';
@@ -82,12 +92,12 @@
 			} else {
 				shareButton.className = "share-button";
 			}
-		}
+		};
 
-		d.documentElement.addEventListener("mousedown", function () {getSelectionText()}, false);
-		d.documentElement.addEventListener("mouseup", function () {getSelectionText()}, false);
-		d.documentElement.addEventListener("keydown", function () {getSelectionText()}, false);
-		d.documentElement.addEventListener("keyup", function () {getSelectionText()}, false);
-		w.addEventListener("scroll", function () {getSelectionText()}, false);
+		d.documentElement.addEventListener("mousedown", function () {getSelectionText();}, false);
+		d.documentElement.addEventListener("mouseup", function () {getSelectionText();}, false);
+		d.documentElement.addEventListener("keydown", function () {getSelectionText();}, false);
+		d.documentElement.addEventListener("keyup", function () {getSelectionText();}, false);
+		w.addEventListener("scroll", function () {getSelectionText();}, false);
 	}
 })(this, this.document);
