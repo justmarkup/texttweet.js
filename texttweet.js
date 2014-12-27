@@ -4,7 +4,9 @@
 *  License: MIT
 */
 
-(function(w, d) {
+(function( w, d ) {
+	'use strict';
+
 	var isModern = 'querySelector' in d && 'addEventListener' in w && w.getSelection,
 		trim,
 		encode,
@@ -19,7 +21,7 @@
 			innerHTML = inputText.innerHTML,
 			index = innerHTML.indexOf(text);
 
-		if (index >= 0) { 
+		if (index >= 0) {
 			innerHTML = innerHTML.substring(0,index) + '<span id="highlight" class="highlight">' + innerHTML.substring(index,index+text.length) + '</span>' + innerHTML.substring(index + text.length);
 			inputText.innerHTML = innerHTML;
 		}
@@ -86,8 +88,8 @@
 				getSelectionCoords();
 				shareButton.style.top = (getSelectionCoords().y) + 'px';
 				shareButton.style.left = (getSelectionCoords().x) + 'px';
-				shareButton.className = "share-button share-button-active";	
-				shareButton.href = "http://www.twitter.com/share?text=" + text + '&url=' + decode(d.location.href);
+				shareButton.className = "share-button share-button-active";
+				shareButton.href = "http://www.twitter.com/intent/tweet?text=" + text + '&url=' + decode(d.location.href);
 
 			} else {
 				shareButton.className = "share-button";
@@ -100,4 +102,4 @@
 		d.documentElement.addEventListener("keyup", function () {getSelectionText();}, false);
 		w.addEventListener("scroll", function () {getSelectionText();}, false);
 	}
-})(this, this.document);
+})( this, this.document );
