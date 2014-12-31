@@ -14,7 +14,6 @@
 		getSelectionCoords,
 		getSelectionText;
 
-
 	// wrap choosen text
 	function highlight(text) {
 		var inputText = d.body,

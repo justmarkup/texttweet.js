@@ -1,9 +1,13 @@
 {
 	"name": "Texttweet.js",
 	"version": "0.1.0",
-	"description": ,
+	"description": "Share highlighted text via twitter",
 	"author": "Michael Scharnagl @justmarkup",
+	"private": true,
 	"devDependencies": {
-		"grunt": "~0.4.0"
+		"grunt": "~0.4.0",
+		"grunt-contrib-uglify": "*",
+		"grunt-contrib-watch": "*",
+		"matchdep": "*"
 	}
 }
