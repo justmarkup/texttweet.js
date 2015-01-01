@@ -14,11 +14,24 @@ module.exports = function(grunt){
 		        }
 		    }
 		},
+		jshint: {
+			options: {
+				 "indent": 2
+			},
+			all: [
+				'Gruntfile.js',
+				'src/*.js'
+			]
+		},
 		watch: {
-			 js: {
-		        files: ['src/**/*.js'],
-		        tasks: ['uglify']
-		    }
+			js: {
+		        files: 'src/**/*.js',
+		        tasks: 'uglify'
+		    },
+		    jshint: {
+                files: 'src/**.js',
+                tasks: 'jshint'
+            }
 		}
     });
 
