@@ -1,0 +1,18 @@
+{
+  "name": "texttweet.js",
+  "main": "dist/textweet.min.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/justmarkup/texttweet.js",
+  "description": "Share highlighted text via twitter",
+  "keywords": [
+    "twitter"
+  ],
+  "license": "MIT",
+  "ignore": [
+    ".*",
+    "src",
+    "example",
+    "Gruntfile.js",
+    "package.json"
+  ]
+}
