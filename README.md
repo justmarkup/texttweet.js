@@ -9,6 +9,11 @@ What is it?
 ------------
 Texttweet.js is a JavaScript library to share hightlighted text via twitter.
 
+Install via bower
+------------
+```
+bower install texttweet.js
+```
 
 How to use?
 ------------
