@@ -1,8 +1,9 @@
 texttweet.js
 ============
 
-* Author    : justmarkup @justmarkup
-* Demo      : https://justmarkup.com/texttweet/index.html
+* Author: justmarkup @justmarkup
+* Demo: https://justmarkup.com/texttweet/index.html
+* Explanation: https://justmarkup.com/log/2014/12/18/share-quotes-via-twitter/
 
 
 What is it?
