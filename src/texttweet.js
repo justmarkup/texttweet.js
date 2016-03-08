@@ -1,6 +1,6 @@
 /*! Texttweet.js
 *  Author: Michael Scharnagl @justmarkup
-*  Version: 0.1.0
+*  Version: 0.2.0
 *  License: MIT
 */
 
@@ -118,7 +118,6 @@
 				}
 
 				if (text && shareable) {
-
 					if (d.querySelector('.highlight')) {
 						d.querySelector('.highlight').className = "";
 					}
